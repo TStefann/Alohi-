@@ -1,13 +1,13 @@
 import { expect, test } from "@playwright/test";
 import { LoginPage } from "../pages/login-page";
+import { testUser } from "../helpers/testData";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
 test("login with valid credentials", async ({ page }) => {
-  const email = "gainsboro401@rouflav.com";
-  const password = "asdfadf124124eqwd1e2da";
+  const { email, password } = testUser;
   const loginPage = new LoginPage(page);
 
   await loginPage.login(email, password);
@@ -16,7 +16,7 @@ test("login with valid credentials", async ({ page }) => {
 });
 
 test("login with invalid credentials", async ({ page }) => {
-  const email = "gainsboro401@rouflav.com";
+  const { email } = testUser;
   const password = "wrongPassword";
   const loginPage = new LoginPage(page);
   await loginPage.login(email, password);

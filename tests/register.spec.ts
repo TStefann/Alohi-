@@ -6,14 +6,13 @@ const MailosaurClient = require("mailosaur");
 require("dotenv").config();
 
 test("Register new user", async ({ page }) => {
-  const registerPage = new RegisterPage(page);
-
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
   const password = faker.internet.password();
   const email = generateNewEmailAddress();
   const mailosaur = new MailosaurClient(process.env.MAILOSAUR_API_KEY);
-  await page.setViewportSize({ width: 1280, height: 720 });
+
+  const registerPage = new RegisterPage(page);
 
   await page.goto("/");
   await page.getByText("Sign Up For Free").click();
