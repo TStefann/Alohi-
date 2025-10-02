@@ -1,6 +1,6 @@
 # Project 2: Automation Testing for Auth flow
 
-This project contains manual QA design and test automation setup for Alohi’s authentication flow.
+This project contains manual QA design and test automation setup for Alohi’s authentication flow
 
 ## Setup
 
